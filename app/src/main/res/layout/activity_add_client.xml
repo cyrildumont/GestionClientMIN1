@@ -16,7 +16,22 @@
     <EditText
         android:id="@+id/last_name_edittext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></EditText>
+    android:layout_height="wrap_content"></EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/client_level"
+        />
+
+    <Spinner
+        android:id="@+id/level_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/levels"
+        >
+
+    </Spinner>
 
     <Button
         android:id="@+id/add_client_button"

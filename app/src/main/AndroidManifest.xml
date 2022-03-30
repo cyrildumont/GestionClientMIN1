@@ -10,13 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GestionClient">
         <activity
-            android:name=".AddClientActivity"
+            android:name=".DetailsClientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListClientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AddClientActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

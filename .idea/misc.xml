@@ -4,7 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/cyril.LEUVILLE/Documents/Formation/Android/GestionClientMIN12022/app/src/main/res/layout/activity_add_client.xml" value="0.18857142857142858" />
+        <entry key="..\:/Users/cyril.LEUVILLE/Documents/Formation/Android/GestionClientMIN12022/app/src/main/res/layout/activity_details_client.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/cyril.LEUVILLE/Documents/Formation/Android/GestionClientMIN12022/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/cyril.LEUVILLE/Documents/Formation/Android/GestionClientMIN12022/app/src/main/res/layout/activity_list_client.xml" value="0.1" />
         <entry key="..\:/Users/cyril.LEUVILLE/Documents/Formation/Android/GestionClientMIN12022/app/src/main/res/layout/activity_main.xml" value="0.14285714285714285" />
+        <entry key="..\:/Users/cyril.LEUVILLE/Documents/Formation/Android/GestionClientMIN12022/app/src/main/res/layout/adapter_client.xml" value="0.2857142857142857" />
       </map>
     </option>
   </component>
