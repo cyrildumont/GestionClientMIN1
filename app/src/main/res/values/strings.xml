@@ -4,6 +4,11 @@
     <string name="client_add_button">Ajouter</string>
     <string name="client_level">Niveau</string>
     <string name="level_advanced">Avancé</string>
+    <string name="confirm_delete_dialog_title">Confirmation</string>
+    <string name="confirm_delete_dialog_message">Sur de toi ?</string>
+    <string name="yes">Oui</string>
+    <string name="toast_client_deleted">Cllient supprimé</string>
+    <string name="no">Non</string>
 
     <string-array name="levels">
         <item>Débutant</item>

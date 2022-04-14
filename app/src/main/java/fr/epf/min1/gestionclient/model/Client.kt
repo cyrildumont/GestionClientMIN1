@@ -1,8 +1,12 @@
 package fr.epf.min1.gestionclient.model
 
+import android.os.Parcelable
+import java.io.Serializable
+
 enum class Gender{
     MAN,WOMAN
 }
+
 
 data class Client(
     val lastname: String,
@@ -11,7 +15,7 @@ data class Client(
     val level: String,
     val age: Int,
     val gender: Gender
-) {
+)  {
     companion object {
         fun bdd(nb : Int = 30) =
              (1..nb).map {

@@ -40,12 +40,7 @@ class ClientAdapter(val clients : List<Client>) :
         val clientImageview =
             holder.view.findViewById<ImageView>(R.id.adapter_client_imageview)
 
-        clientImageview.setImageResource(
-            when(client.gender){
-                Gender.MAN -> R.drawable.man
-                Gender.WOMAN -> R.drawable.woman
-            }
-        )
+        clientImageview.setClient(client)
 
     }
 
