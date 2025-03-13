@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GestionClientMIN12025</string>
+    <string name="client_last_name_label">Nom</string>
+    <string name="client_first_name_label">Prénom</string>
+    <string name="add_client">Ajouter</string>
+
+</resources>
