@@ -45,11 +45,10 @@ class AddClientActivity : AppCompatActivity() {
                     "H"
                 }
             Log.d(TAG, "genre: ${gender}")
+            finish()
             Toast.makeText(this,R.string.add_client_message,Toast.LENGTH_LONG).show()
         }
 
-        button.setOnClickListener{
-            Log.d(TAG, "onCreate: ")
-        }
+
     }
 }
