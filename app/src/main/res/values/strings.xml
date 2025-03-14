@@ -3,5 +3,6 @@
     <string name="client_last_name_label">Nom</string>
     <string name="client_first_name_label">Prénom</string>
     <string name="add_client">Ajouter</string>
-
+    <string name="client_gender">Sexe</string>
+    <string name="add_client_message">Client ajouté !</string>
 </resources>
