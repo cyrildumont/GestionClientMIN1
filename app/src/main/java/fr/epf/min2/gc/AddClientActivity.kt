@@ -10,6 +10,8 @@ import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import fr.epf.min2.gc.model.Client
+import fr.epf.min2.gc.model.Gender
 
 private const val TAG = "AddClientActivity"
 
@@ -37,14 +39,17 @@ class AddClientActivity : AppCompatActivity() {
         })
 
         button.setOnClickListener {
-            Log.d("EPF", "Nom : ${lastNameEdittext.text}")
+            val lastName = lastNameEdittext.text.toString()
+            Log.d("EPF", "Nom : $lastName")
             val gender =
                 if (genderRadiogroup.checkedRadioButtonId == R.id.client_gender_woman_radiobutton) {
-                    "F"
+                    Gender.WOMAN
                 } else {
-                    "H"
+                    Gender.MAN
                 }
             Log.d(TAG, "genre: ${gender}")
+            val client = Client("", lastName, gender)
+            Client.Utils.getClient()
             finish()
             Toast.makeText(this,R.string.add_client_message,Toast.LENGTH_LONG).show()
         }
