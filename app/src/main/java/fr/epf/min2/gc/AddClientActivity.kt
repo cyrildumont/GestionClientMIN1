@@ -49,7 +49,6 @@ class AddClientActivity : AppCompatActivity() {
                 }
             Log.d(TAG, "genre: ${gender}")
             val client = Client("", lastName, gender)
-            Client.Utils.getClient()
             finish()
             Toast.makeText(this,R.string.add_client_message,Toast.LENGTH_LONG).show()
         }

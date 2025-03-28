@@ -2,13 +2,12 @@ package fr.epf.min2.gc.model
 
 import android.util.Log
 import fr.epf.min2.gc.ClientService
-import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-enum class Gender{
+enum class Gender {
     MAN, WOMAN
 }
 
@@ -18,13 +17,15 @@ enum class Gender{
 
 private const val TAG = "Client"
 
-data class Client(val firstName: String,
-             val lastName: String,
-             val gender: Gender){
+data class Client(
+    val firstName: String,
+    val lastName: String,
+    val gender: Gender
+) {
 
-    companion object Utils{
+    companion object Utils {
 
-        fun getClient() :List<Client> {
+        suspend fun getClient(): List<Client> {
             val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             }
@@ -39,11 +40,16 @@ data class Client(val firstName: String,
                 .build()
 
             val clientService = retrofit.create(ClientService::class.java)
-            runBlocking {
-                val clients = clientService.loadClients()
-                Log.i(TAG, "getClient: ${clients}")
+
+            val getUsersResponse = clientService.loadClients()
+            Log.i(TAG, "getClient: ${getUsersResponse}")
+            val clients = getUsersResponse.results.map {
+                Client(
+                    it.name.first, it.name.last,
+                    if (it.gender == "male") Gender.MAN else Gender.WOMAN
+                )
             }
-            return listOf()
+            return clients
         }
 
     }

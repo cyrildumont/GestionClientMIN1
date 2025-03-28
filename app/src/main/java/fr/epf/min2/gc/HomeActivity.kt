@@ -2,6 +2,8 @@ package fr.epf.min2.gc
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,8 +24,18 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        listButton.setOnClickListener {
-            Client.getClient()
+        listButton.click {
+            val intent = Intent(this, ListClientsActivity::class.java)
+            startActivity(intent)
         }
+
+//        listButton.setOnClickListener {
+//            Client.getClient()
+//        }
     }
+}
+
+fun View.click(action : (View) -> Unit){
+    Log.d("EPF", "click !")
+    setOnClickListener(action)
 }
