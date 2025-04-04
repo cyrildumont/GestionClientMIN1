@@ -1,13 +1,17 @@
 package fr.epf.min2.gc
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import fr.epf.min2.gc.model.Client
 import fr.epf.min2.gc.model.Gender
+
+const val CLIENT_DATA = "client.data"
 
 //public class ClientViewHolder extends RecyclerView.ViewHolder{
 //
@@ -32,6 +36,16 @@ class ClientAdapter(val clients: List<Client>) : RecyclerView.Adapter<ClientView
         val (_, _, gender) = client
 
         val itemView = holder.itemView
+
+
+        itemView.click {
+            with(itemView.context){
+                val intent = Intent(this, DetailsClientActivity::class.java).apply {
+                    putExtra(CLIENT_DATA, client)
+                }
+                startActivity(intent)
+            }
+        }
         itemView.findViewById<TextView>(R.id.client_full_name_textview).apply {
 //            text = "${client.firstName} ${client.lastName}"
             text = client.fullName
@@ -39,14 +53,19 @@ class ClientAdapter(val clients: List<Client>) : RecyclerView.Adapter<ClientView
 
         itemView.findViewById<ImageView>(R.id.client_imageview).let {
 
-            it.setImageResource(client.image)
+//            it.setImageResource(client.image)
+            if(client.imageUrl.isBlank()){
+                Glide.with(itemView).load(client.image).into(it)
+            }else{
+                Glide.with(itemView).load(client.imageUrl).into(it)
+            }
 
-            it.setImageResource(
-                when (gender) {
-                    Gender.MAN -> R.drawable.man
-                    Gender.WOMAN -> R.drawable.woman
-                }
-            )
+//            it.setImageResource(
+//                when (gender) {
+//                    Gender.MAN -> R.drawable.man
+//                    Gender.WOMAN -> R.drawable.woman
+//                }
+//            )
         }
 
 //        val clientTextview = itemView.findViewById<TextView>(R.id.client_full_name_textview)

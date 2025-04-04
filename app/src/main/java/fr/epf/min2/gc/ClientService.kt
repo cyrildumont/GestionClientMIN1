@@ -10,5 +10,6 @@ interface ClientService {
 }
 
 data class GetUsersResponse(val results : List<User>)
-data class User(val gender: String, val name: Name)
+data class User(val gender: String, val name: Name, val picture: Picture)
 data class Name(val last: String, val first: String)
+data class Picture(val medium : String)

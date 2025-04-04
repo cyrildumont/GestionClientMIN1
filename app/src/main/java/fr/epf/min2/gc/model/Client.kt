@@ -1,7 +1,9 @@
 package fr.epf.min2.gc.model
 
+import android.os.Parcelable
 import android.util.Log
 import fr.epf.min2.gc.ClientService
+import kotlinx.parcelize.Parcelize
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,11 +19,13 @@ enum class Gender {
 
 private const val TAG = "Client"
 
-data class Client(
+@Parcelize
+data class Client (
     val firstName: String,
     val lastName: String,
-    val gender: Gender
-) {
+    val gender: Gender,
+    val imageUrl: String = ""
+) : Parcelable {
 
     companion object Utils {
 
@@ -46,7 +50,8 @@ data class Client(
             val clients = getUsersResponse.results.map {
                 Client(
                     it.name.first, it.name.last,
-                    if (it.gender == "male") Gender.MAN else Gender.WOMAN
+                    if (it.gender == "male") Gender.MAN else Gender.WOMAN,
+                    it.picture.medium
                 )
             }
             return clients
