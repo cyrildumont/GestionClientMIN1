@@ -16,6 +16,7 @@ class DetailsClientActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_client)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val imageView = findViewById<ImageView>(R.id.details_client_imageview)
         val fullNameTextview = findViewById<TextView>(R.id.details_client_full_name_textview)
 
